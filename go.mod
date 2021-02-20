@@ -1,6 +1,7 @@
 module github.com/garupanojisan/spanner-autoscaler
 
 go 1.15
+
 require (
 	cloud.google.com/go v0.77.0
 	github.com/golang/protobuf v1.4.3
