@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	cloud.google.com/go v0.77.0
+	cloud.google.com/go/spanner v1.14.1
 	github.com/golang/protobuf v1.4.3
 	go.opencensus.io v0.22.6 // indirect
 	golang.org/x/net v0.0.0-20210220033124-5f55cee0dc0d // indirect
