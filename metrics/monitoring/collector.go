@@ -10,6 +10,8 @@ import (
 	"google.golang.org/api/iterator"
 	pb "google.golang.org/genproto/googleapis/monitoring/v3"
 	"google.golang.org/protobuf/types/known/timestamppb"
+
+	"github.com/garupanojisan/spanner-autoscaler/metrics"
 )
 
 // Collector implements Collector interface which calls Monitoring API.
@@ -18,7 +20,7 @@ type Collector struct {
 }
 
 // NewCollector returns a new Collector instance.
-func NewCollector(ctx context.Context) (*Collector, error) {
+func NewCollector(ctx context.Context) (metrics.Collector, error) {
 	c, err := monitoring.NewMetricClient(ctx)
 	if err != nil {
 		return nil, err
