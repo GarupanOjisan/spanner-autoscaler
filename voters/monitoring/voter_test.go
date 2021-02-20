@@ -9,7 +9,7 @@ import (
 	"github.com/garupanojisan/spanner-autoscaler/metrics/monitoring"
 )
 
-func TestPoller_Poll(t *testing.T) {
+func TestVoter_Vote(t *testing.T) {
 	ctx := context.Background()
 	c, err := monitoring.NewCollector(ctx)
 	if err != nil {
@@ -48,13 +48,13 @@ func TestPoller_Poll(t *testing.T) {
 			p := &Voter{
 				collector: tt.fields.collector,
 			}
-			got, err := p.Poll(tt.args.ctx, tt.args.projectID, tt.args.instanceID)
+			got, err := p.Vote(tt.args.ctx, tt.args.projectID, tt.args.instanceID)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("Poller.Poll() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("Voter.Vote() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if got != tt.want {
-				t.Errorf("Poller.Poll() = %v, want %v", got, tt.want)
+				t.Errorf("Voter.Vote() = %v, want %v", got, tt.want)
 			}
 		})
 	}
